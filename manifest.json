@@ -1,0 +1,23 @@
+{
+    "name": "Sabor Encantado",
+    "short_name": "Padaria",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#e3a56f",
+    "description": "Cardápio Digital Sabor Encantado",
+    "icons":[
+        {
+            "src": "assets/images/logopwa.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+             "src": "assets/images/logopwa512.png",
+             "sizes": "512x512",
+             "type": "image/png",
+             "purpose": "any"
+        }
+    ]
+}

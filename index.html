@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabor Encantado </title>
 
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content = "#e3a56f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="./assets/images/logopwa.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logopwa.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logopwa.png">
+    <link rel="icon" type="image/png" href="./assets/images/logopwa.png">
+    <link rel="shortcut icon" href="./assets/images/logopwa.png" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="./assets/images/logopwa.png">
+    <meta property="og:image" content="./assets/images/logopwa.png">
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -684,6 +696,14 @@
             }
         }
         inicializarCarrinho();
+
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('Service Worker Registrado no Porto! 🍞', reg))
+                .catch(err => console.error('Erro ao preparar o produto: ', err));
+            });
+        }
 
 
    </script>
