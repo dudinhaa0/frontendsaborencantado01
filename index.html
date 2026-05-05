@@ -276,7 +276,7 @@
                         const precoFormatado = p.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL' });
                         const imgSource = (p.imagem && p.imagem.startsWith('http'))
                         ? p.imagem
-                        : `./img/${p.imagem || 'logo.png'}`;
+                        : `./assets/img/${p.imagem || 'logo.png'}`;
                         const card = document.createElement('div');
                         card.className = "bg-write rounded-[20px] p-3 shadow-sm border border-gray-100 relative flex flex-col hover-col hover:shadow-md transition-shadow group";
                         card.innerHTML = `
