@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor Encantado</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Configurações para PWA (manifest e tema)-->
+    <link rel='manifest' href="manifest.json">
+    <meta name="theme-color" content="#1b4414">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel='apple=touch-icon' href="./assets/img/logo.png">
+    <link rel='icon' type="image/png" sizes="32x32" href="./assets/img/logo.png">
+    <link rel='icon' type="image/png" sizes="16x16"href="./assets/img/logo.png">
+    <link rel='icon' type="image/png" href="./assets/img/logo.png">
+    <link rel='shortcut icon' href="./assets/img/logo.png" type="image/x-icon">
+    <meta name="msapplication-TileImage" content="./assets/img/logo.png">
+    <meta property="og:image" content="./assets/img/logo.png">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        barlow: ['Barlow', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6b3827',
+                        dark: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+
+    </script>
+
+    <!-- animação do botão hamburguer -->
+    <style>
+        /* Primeira barra gira */
+        #btn-mobile.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+        }
+
+        /* Barra do meio some */
+        #btn-mobile.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        /* Última barra gira */
+        #btn-mobile.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+        }
+    </style>
+
+</head>
+
+
+<body class="font-barlow text-[#222222] bg-gray-100">
+
+    <!-- ================= HEADER ================= -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center">
+
+                <!-- Logo -->
+                <a href="#" class="flex items-center py-4 px-2">
+                      <img src="./assets/images/logo.png" alt="laços de Açúcar" class="h-12" onerror="this.src='../img/logo.png'">
+                </a>
+
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="py-4 px-2 text-gray-500 font-semibold hover:text-primary transition duration-300">Atualizar</a>
+                    
+                </div>
+
+                <!-- Botão Hambúrguer Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button id="btn-mobile" class="flex flex-col justify-center items-center w-8 h-8 space-y-1">
+
+                        <!-- 3 Barras -->
+                        <span class="block w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+                        <span class="block w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+                        <span class="block w-6 h-0.5 bg-gray-600 transition-all duration-300"></span>
+
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Menu Mobile -->
+        <div class="hidden md:hidden bg-white shadow-md" id="menu-mobile">
+            <ul>
+              
+                <li><a href="#" class="block text-sm px-4 py-3 hover:bg-primary hover:text-white transition duration-300">Atualizar</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ================= SCRIPT DO MENU ================= -->
+    <script>
+        const btn = document.getElementById('btn-mobile');
+        const menu = document.getElementById('menu-mobile');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden'); // Mostra/esconde menu
+            btn.classList.toggle('active');  // Ativa animação X
+        });
+    </script>
+
+
+    <div class="max-w-4xl mx-auto p-6">
+
+  <!-- Cabeçalho -->
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold text-gray-800">Pedidos Recebidos</h1>
+    
+    <span id="contadorPedidos"
+      class="bg-red-500 text-white text-sm font-semibold px-4 py-1 rounded-full">
+      0 pedidos
+    </span>
+  </div>
+
+  <!-- Alerta de erro -->
+  <div id="erroBox"
+    class="border border-red-300 bg-red-100 text-red-700 p-4 rounded-lg shadow-sm">
+
+    <p class="font-bold mb-1">Ops!</p>
+    <p>
+      Não foi possível carregar os pedidos da nuvem. Verifique a conexão com a API.
+    </p>
+
+  </div>
+
+</div>
+    </section>
